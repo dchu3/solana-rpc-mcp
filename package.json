@@ -1,10 +1,10 @@
 {
-  "name": "dex-rugcheck-mcp",
+  "name": "solana-rpc-mcp",
   "version": "1.0.0",
-  "description": "TypeScript RugCheck MCP server",
+  "description": "TypeScript MCP server for Solana JSON-RPC API",
   "main": "dist/index.js",
   "bin": {
-    "dex-rugcheck-mcp": "dist/index.js"
+    "solana-rpc-mcp": "dist/index.js"
   },
   "scripts": {
     "build": "tsc",
@@ -12,16 +12,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dchu3/dex-rugcheck-mcp.git"
+    "url": "git+https://github.com/dchu3/solana-rpc-mcp.git"
   },
-  "keywords": ["mcp", "rugcheck", "solana"],
+  "keywords": ["mcp", "solana", "rpc", "blockchain", "crypto"],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/dchu3/dex-rugcheck-mcp/issues"
+    "url": "https://github.com/dchu3/solana-rpc-mcp/issues"
   },
-  "homepage": "https://github.com/dchu3/dex-rugcheck-mcp#readme",
+  "homepage": "https://github.com/dchu3/solana-rpc-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.25.2"
   },
