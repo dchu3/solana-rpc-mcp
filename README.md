@@ -26,6 +26,8 @@ Add to your MCP client configuration:
 }
 ```
 
+You can optionally set `SOLANA_RPC_URL` to use a dedicated provider endpoint. If not set, it defaults to `https://api.mainnet-beta.solana.com`.
+
 ## Tools
 
 ### Account Methods
