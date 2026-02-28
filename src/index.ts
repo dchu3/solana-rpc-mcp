@@ -4,12 +4,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-const rawSolanaRpcUrl = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
+const rawSolanaRpcUrl = process.env.SOLANA_RPC_URL?.trim() || "https://api.mainnet-beta.solana.com";
 
 let SOLANA_RPC_URL: string;
+let sanitizedSolanaRpcUrl = "<invalid-url>";
 
 try {
   const parsedUrl = new URL(rawSolanaRpcUrl);
+  sanitizedSolanaRpcUrl = parsedUrl.origin;
   if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") {
     throw new Error("SOLANA_RPC_URL must use http or https protocol");
   }
@@ -17,7 +19,7 @@ try {
 } catch (err) {
   const detail = err instanceof Error ? err.message : String(err);
   console.error(
-    `Invalid SOLANA_RPC_URL environment variable: ${JSON.stringify(rawSolanaRpcUrl)}\n` +
+    `Invalid SOLANA_RPC_URL environment variable (sanitized: ${sanitizedSolanaRpcUrl}).\n` +
       'Expected an absolute http(s) URL, for example: "https://api.mainnet-beta.solana.com".\n' +
       `Details: ${detail}`
   );
