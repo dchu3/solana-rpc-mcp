@@ -4,7 +4,25 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-const SOLANA_RPC_URL = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
+const rawSolanaRpcUrl = process.env.SOLANA_RPC_URL || "https://api.mainnet-beta.solana.com";
+
+let SOLANA_RPC_URL: string;
+
+try {
+  const parsedUrl = new URL(rawSolanaRpcUrl);
+  if (parsedUrl.protocol !== "http:" && parsedUrl.protocol !== "https:") {
+    throw new Error("SOLANA_RPC_URL must use http or https protocol");
+  }
+  SOLANA_RPC_URL = parsedUrl.toString();
+} catch (err) {
+  const detail = err instanceof Error ? err.message : String(err);
+  console.error(
+    `Invalid SOLANA_RPC_URL environment variable: ${JSON.stringify(rawSolanaRpcUrl)}\n` +
+      'Expected an absolute http(s) URL, for example: "https://api.mainnet-beta.solana.com".\n' +
+      `Details: ${detail}`
+  );
+  process.exit(1);
+}
 const FETCH_TIMEOUT_MS = 30000;
 
 const server = new McpServer({
