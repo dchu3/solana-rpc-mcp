@@ -33,7 +33,7 @@ Or using `npx` (no build step required after publish):
   "mcpServers": {
     "solana-rpc": {
       "command": "npx",
-      "args": ["solana-rpc-mcp"]
+      "args": ["-y", "solana-rpc-mcp"]
     }
   }
 }
