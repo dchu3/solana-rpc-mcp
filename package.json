@@ -14,7 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/dchu3/solana-rpc-mcp.git"
   },
-  "keywords": ["mcp", "solana", "rpc", "blockchain", "crypto"],
+  "keywords": [
+    "mcp",
+    "solana",
+    "rpc",
+    "blockchain",
+    "crypto"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
@@ -23,7 +29,8 @@
   },
   "homepage": "https://github.com/dchu3/solana-rpc-mcp#readme",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.25.2"
+    "@modelcontextprotocol/sdk": "^1.25.2",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^25.0.6",
