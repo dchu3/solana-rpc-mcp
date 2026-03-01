@@ -26,7 +26,7 @@ Add to your MCP client configuration:
 }
 ```
 
-Or using `npx` (no build step required after publish):
+Or using `npx`:
 
 ```json
 {
