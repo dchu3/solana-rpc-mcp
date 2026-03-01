@@ -26,7 +26,34 @@ Add to your MCP client configuration:
 }
 ```
 
-You can optionally set `SOLANA_RPC_URL` to use a dedicated provider endpoint. If not set, it defaults to `https://api.mainnet-beta.solana.com`.
+Or using `npx`:
+
+```json
+{
+  "mcpServers": {
+    "solana-rpc": {
+      "command": "npx",
+      "args": ["-y", "solana-rpc-mcp"]
+    }
+  }
+}
+```
+
+You can optionally set `SOLANA_RPC_URL` to use a dedicated provider endpoint. This value must be an absolute URL using `http` or `https` (for example, `https://your-rpc-provider.com`). The server validates `SOLANA_RPC_URL` at startup and will exit with an error if it is not a valid absolute `http(s)` URL. If not set, it defaults to `https://api.mainnet-beta.solana.com`. To set it in your MCP client configuration:
+
+```json
+{
+  "mcpServers": {
+    "solana-rpc": {
+      "command": "node",
+      "args": ["/path/to/solana-rpc-mcp/dist/index.js"],
+      "env": {
+        "SOLANA_RPC_URL": "https://your-rpc-provider.com"
+      }
+    }
+  }
+}
+```
 
 ## Tools
 
